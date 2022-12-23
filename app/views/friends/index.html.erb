@@ -1,0 +1,16 @@
+<div class='container-xl' id='friends-index-container' data-controller='filters'>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Friends</h1>
+
+  <div>
+    <input class="form-control me-2 w-25" type="text" name="Search" placeholder="Search" data-filters-target='input' data-action='change->filters#searchByName'>
+  </div>
+  <br>
+  <div data-filters-target='listData'>
+    <%= render 'friends/table',  friends: @friends%>
+  </div>
+  <br>
+
+  <%= link_to 'New Friend', new_friend_path,  class:"btn btn-secondary"  %>
+</div>
