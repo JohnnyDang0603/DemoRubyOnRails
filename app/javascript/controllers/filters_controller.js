@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {}
 
   // search friend
-  searchByName() {
+  searchByName(url) {
     Rails.ajax({
       url: `/friends?search=${this.inputTarget.value}`,
       type: 'get',

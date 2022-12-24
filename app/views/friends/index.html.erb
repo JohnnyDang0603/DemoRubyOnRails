@@ -4,10 +4,10 @@
   <h1>Friends</h1>
 
   <div>
-    <input class="form-control me-2 w-25" type="text" name="Search" placeholder="Search" data-filters-target='input' data-action='change->filters#searchByName'>
+    <input class="form-control me-2 w-25" type="input" name="Search" placeholder="Search" data-filters-target='input' data-action='input->filters#searchByName'>
   </div>
   <br>
-  <div data-filters-target='listData'>
+  <div data-filters-target='listData' data-controller="pagination">
     <%= render 'friends/table',  friends: @friends%>
   </div>
   <br>
