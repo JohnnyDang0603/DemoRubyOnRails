@@ -1,10 +1,10 @@
 <div data-controller="filters">
-  <h1>User</h1>
-     <input class="form-control me-2 w-25" type="text" name="Search" placeholder="Search" data-filters-target='input' data-action='input->filters#searchByEmail'>
-  <br>
-  <div data-filters-target="listData">
-    <%= render 'users/table', users: @users%>
+  <div class="container">
+    <h1>User</h1>
+      <input class="form-control me-2 w-25" type="text" name="Search" placeholder="Search" data-filters-target='input' data-action='input->filters#searchByEmail'>
+    <br>
+    <div data-filters-target="listData">
+      <%= render 'users/table', users: @users%>
+    </div>
   </div>
-
-
 </div>

@@ -1,0 +1,76 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/johnny/Documents/Rails/friends/app/models/user.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/johnny/Documents/Rails/friends/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/johnny/Documents/Rails/friends/app/helpers/application_helper.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/johnny/Documents/Rails/friends/app/helpers/friends_helper.rb": [
+        1,
+        null
+      ],
+      "/home/johnny/Documents/Rails/friends/app/helpers/home_helper.rb": [
+        1,
+        null
+      ],
+      "/home/johnny/Documents/Rails/friends/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/home/johnny/Documents/Rails/friends/app/models/friend.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1672066408
+  }
+}

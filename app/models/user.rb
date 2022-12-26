@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :friends
+  has_many :friends, dependent: :destroy
   has_one_attached :avatar
   after_commit :add_default_avatar, only: %i[create update]
   def admin?

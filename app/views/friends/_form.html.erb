@@ -1,4 +1,5 @@
 <%= form_with(model: friend) do |form| %>
+  <div class="error-message">
   <% if friend.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
@@ -9,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+</div>
   <div class="field form-group">
     <%= form.text_field :first_name, class:"form-control", placeholder:"First name..." %>
   </div>
