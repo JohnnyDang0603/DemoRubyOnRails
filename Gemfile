@@ -8,12 +8,13 @@ gem 'rails', '~> 6.1.7'
 gem 'bootstrap', '~> 5.2.2'
 gem 'stimulus-rails'
 gem 'pagy'
-gem 'ransack', :github => 'activerecord-hackery/ransack', :branch => 'main'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'main'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-gem "rolify"
+gem 'rolify'
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -41,7 +42,7 @@ group :development, :test do
 end
 
 group :development do
- gem 'web-console', '~> 4.2'
+  gem 'web-console', '~> 4.2'
   gem 'rack-mini-profiler', '~> 3.0'
   gem 'listen', '~> 3.7'
   gem 'spring'
@@ -67,9 +68,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "pundit", "~> 2.3"
+gem 'pundit', '~> 2.3'

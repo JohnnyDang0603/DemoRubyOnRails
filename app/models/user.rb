@@ -6,7 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :friends, dependent: :destroy
   has_one_attached :avatar
-  after_commit :add_default_avatar, only: %i[create update]
+  # after_commit :add_default_avatar, only: %i[create update]
+
   def admin?
     has_role?(:admin)
   end
@@ -19,7 +20,12 @@ class User < ApplicationRecord
     end
   end
 
+  def avatar_url
+    avatar&.url || 'images/default_profile.jpg'
+  end
+
   private
+
   def add_default_avatar
     unless avatar.attached?
       avatar.attach(
@@ -27,10 +33,9 @@ class User < ApplicationRecord
           Rails.root.join(
             'app', 'assets', 'images', 'default_profile.jpg'
           )
-        ),filename: 'default_profile.jpg',
+        ), filename: 'default_profile.jpg',
         content_type: 'image/jpg'
       )
     end
   end
-
 end

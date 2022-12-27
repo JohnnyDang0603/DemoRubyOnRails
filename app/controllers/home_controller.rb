@@ -3,8 +3,5 @@ class HomeController < ApplicationController
     @friends = current_user.friends if current_user.present?
   end
 
-  def about
-
-  end
-
+  def about; end
 end
