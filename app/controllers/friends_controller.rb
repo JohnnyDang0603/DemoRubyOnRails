@@ -35,7 +35,7 @@ class FriendsController < ApplicationController
   def update
     respond_to do |format|
       if @friend.update(friends_params)
-        format.html { redirect_to friends_path, notice: 'Update friend ' }
+        format.html { redirect_to friends_path, notice: 'Update friend' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

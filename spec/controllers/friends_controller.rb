@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe FriendsController, type: :controller do
-  let!(:user) { FactoryBot.create(:user) }
+  let!(:user) { create(:user) }
   describe 'GET #index' do
-    let!(:friends) { FactoryBot.create_list(:friend, 5, user: user) }
+    let!(:friends) { create_list(:friend, 5, user: user) }
     def do_request(user)
       sign_in user if user
       get :index
@@ -21,7 +21,7 @@ RSpec.describe FriendsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let!(:friend) { FactoryBot.create(:friend) }
+    let!(:friend) { create(:friend) }
 
     def do_request(user, params)
       sign_in user if user
@@ -38,21 +38,95 @@ RSpec.describe FriendsController, type: :controller do
     end
   end
 
-  describe 'GET #destroy' do
-    let!(:friend) { FactoryBot.create(:friend) }
+  describe 'Post #destroy' do
+    let!(:friend) { create(:friend) }
 
     def do_request(user, params)
       sign_in user if user
-      get :destroy, params: params
+      delete :destroy, params: params
     end
 
     before do
       do_request(user, { id: friend.id })
     end
-    it 'returns http success' do
-      expect(response).to have_http_status(:success)
-      expect(response).to render_template(:index)
-      expect(assigns(:friend)).to eq friend
+    it 'should delete friend' do
+      expect(flash[:notice]).to eq('Friend was successfully destroyed.')
+      expect(response).to redirect_to friends_url
     end
   end
+
+  describe 'Post #new' do
+    let!(:friend1) { create(:friend) }
+
+    def do_request(user)
+      sign_in user if user
+    end
+
+    before do
+      do_request(user)
+    end
+    it 'should success and render to new page' do
+      get :new
+      expect(response).to have_http_status(200)
+      expect(response).to render_template(:new)
+    end
+  end
+
+  describe 'Post #create' do
+    let!(:friend1) { create(:friend) }
+
+    def do_request(user)
+      sign_in user if user
+      post :create, params: { friend: attributes_for(:friend) }
+    end
+
+    before do
+      do_request(user)
+    end
+
+    it 'create a new friend' do
+      expect(flash[:notice]).to eq('Add friend successfully.')
+      expect(response).to redirect_to friends_path
+    end
+  end
+
+  describe 'PUT #update' do
+    let!(:friend) { create(:friend) }
+
+    def do_request(user)
+      sign_in user if user
+      put :update, { id: friend.id, friend: friend }
+      friend.reload
+    end
+
+    before do
+      do_request(user)
+    end
+
+    it 'update a friend' do
+      expect(flash[:notice]).to eq('Update friend')
+      expect(friend.first_name).to eq(params[:fisrt_name])
+    end
+  end
+
+  describe 'GET #edit' do
+    let!(:friend) { create(:friend) }
+
+    def do_request(user)
+      sign_in user if user
+      get :edit, { id: friend.id}
+      friend.reload
+    end
+
+    before do
+      do_request(user)
+    end
+
+    it 'update a friend' do
+      expect(responese).to
+      expect(flash[:notice]).to eq('Update friend')
+      expect(friend.first_name).to eq(params[:fisrt_name])
+    end
+  end
+
 end
