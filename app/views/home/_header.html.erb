@@ -36,8 +36,8 @@
       </ul>
       <form class="d-flex align">
       <%if user_signed_in?%> %>
-          <%# <%=image_tag(current_user&.avatar_thumbnail, class:"avatar") %>
-          <%# <%=link_to current_user&.email,edit_user_registration_path,class:"btn-br1 " %> %> %>
+          <%=image_tag(current_user&.avatar_thumbnail, class:"avatar")%>
+          <%=link_to current_user&.email,edit_user_registration_path,class:"btn-br1 " %>
       <%end%>
       </form>
     </div>

@@ -1,7 +1,6 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!, expect: %i[show index]
   before_action :set_friend, only: %i[show edit update destroy]
-  # before_action :check_access!, only: %i[index]
   def index
     flash[:alert] = 'this is index'
     @friends = current_user&.admin? ? Friend.all : current_user.friends
@@ -63,7 +62,4 @@ class FriendsController < ApplicationController
     render_to_string(partial: 'friends/table', formats: [:html], layout: false, locals: { friends: @friends })
   end
 
-  def check_access!
-    check_authorize(current_user)
-  end
 end

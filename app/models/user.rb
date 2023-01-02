@@ -5,8 +5,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :friends, dependent: :destroy
+  has_many :users_projects
+  has_many :projects, through: :users_projects
   has_one_attached :avatar
-  # after_commit :add_default_avatar, only: %i[create update]
+  after_commit :add_default_avatar
 
   def admin?
     has_role?(:admin)
@@ -14,7 +16,7 @@ class User < ApplicationRecord
 
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize: '150x150').processed
+      avatar.variant(resize: '150x150!').processed
     else
       '/default_profile.jpg'
     end

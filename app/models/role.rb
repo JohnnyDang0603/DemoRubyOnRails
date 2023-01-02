@@ -6,7 +6,7 @@ class Role < ApplicationRecord
              optional: true
 
   validates :resource_type,
-            inclusion: { in: %i[admin user] },
+            inclusion: { in: %i[admin employee] },
             allow_nil: true
 
   scopify

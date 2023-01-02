@@ -11,6 +11,7 @@ gem 'pagy'
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'main'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+gem 'pg' , '~> 1.4.5'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
